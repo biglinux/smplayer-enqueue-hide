@@ -1,0 +1,11 @@
+Package: smplayer-enqueue-hide
+Version: 1.0.0-1big1
+Depends: smplayer
+Architecture: all
+Maintainer: Bruno Goncalves <www.biglinux.com.br>
+Section: admin
+Priority: optional
+Installed-Size:28
+Description: Hide smplayer enqueue in menu
+
+

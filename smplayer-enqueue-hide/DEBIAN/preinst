@@ -1,0 +1,16 @@
+#!/bin/sh
+set -e
+package_name=smplayer-enqueue-hide
+mkdir -p "/usr/share/dpkgdivert/smplayer-enqueue-hide"
+case "$1" in
+  install)
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/smplayer-enqueue-hide/usrshareapplicationssmplayer_enqueue.desktop" --rename "/usr/share/applications/smplayer_enqueue.desktop"
+    ;;
+  upgrade)
+if [ "$(dpkg-divert --list "/usr/share/applications/smplayer_enqueue.desktop")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/smplayer-enqueue-hide/usrshareapplicationssmplayer_enqueue.desktop" --rename "/usr/share/applications/smplayer_enqueue.desktop"
+fi
+;;
+esac
+exit 0
